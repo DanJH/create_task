@@ -1,17 +1,6 @@
 f = True
 import smtplib
-user = str(raw_input("G-mail username: "))
-pwd = str(raw_input("G-mail password: "))
-gmail_user = user
-gmail_pwd = pwd
-print("/email to send email")
-while f == True:
-    command = raw_input
-    if command == "/email":
-        email()
-    else:
-        print("Please enter a valid command")
-
+#Definitions
 def email():
     recipient = str(raw_input("To: "))
     subject = str(raw_input("Subject: "))
@@ -37,3 +26,18 @@ def email():
         print("Mail sent!")
     except:
         print("Failed to send mail!")
+        
+        
+#Main Start
+user = str(raw_input("G-mail username: "))
+pwd = str(raw_input("G-mail password: "))
+gmail_user = user
+gmail_pwd = pwd
+print("/email to send email")
+while True:
+    command = raw_input()
+    if command == "/email":
+        email()
+    else:
+        print("Please enter a valid command")
+
