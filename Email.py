@@ -1,5 +1,6 @@
 f = True
 import smtplib
+from time import sleep
 #Definitions
 def email():
     recipient = str(raw_input("To: "))
@@ -31,13 +32,20 @@ def email():
 #Main Start
 user = str(raw_input("G-mail username: "))
 pwd = str(raw_input("G-mail password: "))
+print "Connecting",
+for i in range(10):
+    sleep(.1)
+    print ". ",
+print("")    
 gmail_user = user
 gmail_pwd = pwd
-print("/email to send email")
+print("/help for help")
 while True:
     command = raw_input()
     if command == "/email":
         email()
+    elif command == "/help":
+        print("/email for email")
     else:
         print("Please enter a valid command")
 
