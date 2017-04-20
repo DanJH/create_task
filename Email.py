@@ -49,7 +49,7 @@ def email():
         
         
 #Main Start
-user = str(raw_input("G-mail username: "))
+user = str(raw_input("G-mail username (make sure to use @gmail.com): "))
 pwd = str(raw_input("G-mail password: "))
 print "Connecting",
 for i in range(10):
