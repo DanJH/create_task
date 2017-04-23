@@ -63,7 +63,9 @@ def email():
         print("Failed to send mail! Check connection, password, and username!")
           
 #Main Start
-user = str(raw_input("G-mail username (make sure to use @gmail.com): "))
+user = str(raw_input("G-mail username (MUST BE GMAIL ACCOUNT): "))
+if "@gmail.com" not in user:
+    user = user+"@gmail.com"
 pwd = str(raw_input("G-mail password: "))
 loading(5)
 print("")    
