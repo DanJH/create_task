@@ -2,7 +2,7 @@
 #Referenced documentation throughout however
 
 #-----------Libraries to import---------------
-import feedparser, sys, poplib,smtplib, urllib2
+import feedparser, sys, poplib,smtplib, urllib2, getpass
 from time import sleep 
 
 
@@ -49,12 +49,12 @@ def mailcheck(checker): #Defines function
 '''Reads emails using atom feed'''            
 def read():
     mail = int(feedparser.parse(
-        head + usr + ":" + pwd + "@" + where + end
+        head + usr + ":" + pwd + "@" + where + end #This connects to the atom server them returns an integer of the amount of emails
     )["feed"]["fullcount"])
-    print mail, " new emails"
-    print(feedparser.parse(
+    print mail, " new emails" #Outputs how many emails read
+    print(feedparser.parse( #Reads the XML on gmail atom and prints it
         head + usr + ":" + pwd + "@" + where + end
-    )["feed"]["subject"])
+    ))
          
            
 '''Sending e-mail to others'''                
@@ -96,7 +96,7 @@ def email():
 usr = str(raw_input("G-mail username (MUST BE GMAIL ACCOUNT): ")) #Gathers user's username for login
 if "@gmail.com" not in usr: #Checks if "@gmail.com" is at end
     user = usr+"@gmail.com" #Adds "@gmail.com" in order to send emails using POP
-pwd = str(raw_input("G-mail password: ")) #Gathers user's password for login
+pwd = str(getpass.getpass("G-mail password: ")) #Gathers user's password for login
 print ""   #Line for beauty purposes
 mailcheck(1) #Goes to function checking for new mail
 print ""  #Line for beauty purposes
